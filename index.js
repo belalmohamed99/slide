@@ -1,21 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const carouselSlide = document.querySelector(".carousel-slide");
-  const prevButton = document.querySelector(".carousel-prev");
-  const nextButton = document.querySelector(".carousel-next");
-  const images = document.querySelectorAll(".carousel-slide img");
+    const carouselSlide = document.querySelector(".carousel-slide");
+    const prevButton = document.querySelector(".carousel-prev");
+    const nextButton = document.querySelector(".carousel-next");
+    const carouselItems = document.querySelectorAll(".carousel-item");
+  
+    let counter = 0;
+    const slideWidth = carouselItems[0].clientWidth;
 
-  let counter = 0;
-  const size = images[0].clientWidth;
-
-  nextButton.addEventListener("click", () => {
-    if (counter >= images.length - 1) return;
-    counter++;
-    carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+    nextButton.addEventListener("click", () => {
+      if (counter >= carouselItems.length - 1) return;
+      counter++;
+      carouselSlide.style.transition = "transform 0.5s ease-in-out";
+      carouselSlide.style.transform = `translateX(${-slideWidth * counter}px)`;
+    });
+ 
+    prevButton.addEventListener("click", () => {
+      if (counter <= 0) return;
+      counter--;
+      carouselSlide.style.transition = "transform 0.5s ease-in-out";
+      carouselSlide.style.transform = `translateX(${-slideWidth * counter}px)`;
+    });
   });
-
-  prevButton.addEventListener("click", () => {
-    if (counter <= 0) return;
-    counter--;
-    carouselSlide.style.transform = `translateX(${-size * counter}px)`;
-  });
-});
