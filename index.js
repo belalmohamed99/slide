@@ -10,14 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
     nextButton.addEventListener("click", () => {
       if (counter >= carouselItems.length - 1) return;
       counter++;
-      carouselSlide.style.transition = "transform 0.5s ease-in-out";
       carouselSlide.style.transform = `translateX(${-slideWidth * counter}px)`;
     });
  
     prevButton.addEventListener("click", () => {
       if (counter <= 0) return;
       counter--;
-      carouselSlide.style.transition = "transform 0.5s ease-in-out";
       carouselSlide.style.transform = `translateX(${-slideWidth * counter}px)`;
     });
   });

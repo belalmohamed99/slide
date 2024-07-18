@@ -1,7 +1,7 @@
 .carousel-container {
     position: relative;
     overflow: hidden;
-    width: 600px; /* تعديل العرض حسب الحاجة */
+    width: 600px;
     margin: 0 auto;
   }
   
